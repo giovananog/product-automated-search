@@ -8,7 +8,7 @@ function Home() {
     <div>
     
         <Header />
-        <p> App Home </p>
+        
         <Footer />
 
     </div>
