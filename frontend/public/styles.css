@@ -3,3 +3,14 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.stores {
+  display: flex;
+  justify-content: center;
+}
+
+.store-cards {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}

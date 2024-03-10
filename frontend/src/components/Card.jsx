@@ -7,7 +7,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 
 export default function GenericCard(props) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ width: 345, margin: '50px' }}>
       <CardActionArea>
         <CardMedia
           component="img"
