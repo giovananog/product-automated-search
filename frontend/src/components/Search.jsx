@@ -5,8 +5,20 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
+import { useNavigate } from 'react-router-dom';
 
 export default function SearchField() {
+  const navigate = useNavigate();
+
+  async function searchName(event) {
+    var value = event.target.value;
+    
+    if (event.keyCode === 13) {
+      const searchURL = `/search/${value}`;
+      navigate(searchURL);
+    } 
+  }
+
   return (
     <Paper
       component="form"
@@ -19,6 +31,7 @@ export default function SearchField() {
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search Product"
         inputProps={{ 'aria-label': 'search product' }}
+        onKeyDown={searchName}
       />
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
       <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
