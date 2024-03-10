@@ -2,6 +2,8 @@ import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import GenericCard from "./Card";
+import SearchField from "./Search";
+
 
 
 function Home() {
@@ -16,7 +18,13 @@ function Home() {
             <GenericCard name='Store 2' image='images/Store 2.jpg'/>
             <GenericCard name='Store 3' image='images/Store 3.png'/>
           </div>
+
         </div>
+
+        <div className="search-field-div">
+          <SearchField />
+        </div>
+        
 
         <Footer />
 

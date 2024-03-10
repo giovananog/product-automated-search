@@ -7,10 +7,17 @@
 .stores {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .store-cards {
   display: flex;
   justify-content: space-between;
   width: 60%;
+}
+
+.search-field-div {
+  margin: 10%;
+  display: flex;
+  justify-content: center;
 }
