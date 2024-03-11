@@ -42,18 +42,18 @@ def store1_scraping():
         time.sleep(5)
         price1 = driver.find_elements(By.CSS_SELECTOR, ".a-price-whole")
         price2 = driver.find_elements(By.CSS_SELECTOR, ".a-price-fraction")
-        # rate = driver.find_elements(By.CSS_SELECTOR, ".a-section .a-spacing-none .a-spacing-top-micro")
+        # rating = driver.find_elements(By.CSS_SELECTOR, ".a-section .a-spacing-none .a-spacing-top-micro")
         name = driver.find_elements(By.CSS_SELECTOR, ".a-text-normal .a-color-base")
         
         # time.sleep(5)
-        print(price1[i+4].text)
-        print('\n')
-        print(price2[i+4].text)
-        print('\n')
-        # print(rate[i+4].text)
+        # print(price1[i+4].text)
         # print('\n')
-        print(name[i+4].text)
-        print('--------')
+        # print(price2[i+4].text)
+        # print('\n')
+        # # print(rating[i+4].text)
+        # # print('\n')
+        # print(name[i+4].text)
+        # print('--------')
 
 
 
@@ -62,35 +62,35 @@ def store1_scraping():
 
 def store2_scraping():
     driver.get(url_store2)
-    # input = driver.find_elements(By.XPATH, "/html/body/div[1]/header/div/div[1]/div[2]/div/form/div[3]/div[1]/input")
 
-    # time.sleep(5)
-    # for i in input:
-    #     i.send_keys("Cube")
+    time.sleep(5)
+    input = driver.find_elements(By.CSS_SELECTOR, "#input-search")
 
-    # search_button = driver.find_elements(By.XPATH, "/html/body/div[1]/header/div/div[1]/div[2]/div/form/div[4]/div/span")
+    time.sleep(5)
+    for i in input:
+        i.send_keys("Cube")
 
-    # time.sleep(5)
-    # for i in search_button:
-    #     i.click()
-    #     break
+    search_button = driver.find_elements(By.CSS_SELECTOR, ".sc-eqUAAy.IubVJ.sc-cVzyXs.cEKPCm")
 
-    # for i in range(3):
-    #     time.sleep(5)
-    #     price1 = driver.find_elements(By.CSS_SELECTOR, ".a-price-whole")
-    #     price2 = driver.find_elements(By.CSS_SELECTOR, ".a-price-fraction")
-    #     # rate = driver.find_elements(By.CSS_SELECTOR, ".a-section .a-spacing-none .a-spacing-top-micro")
-    #     name = driver.find_elements(By.CSS_SELECTOR, ".a-text-normal .a-color-base")
-        
-    #     # time.sleep(5)
-    #     print(price1[i+4].text)
-    #     print('\n')
-    #     print(price2[i+4].text)
-    #     print('\n')
-    #     # print(rate[i+4].text)
-    #     # print('\n')
-    #     print(name[i+4].text)
-    #     print('--------')
+    time.sleep(5)
+    for i in search_button:
+        i.click()
+
+    for i in range(3):
+        time.sleep(5)
+        # rating = driver.find_elements(By.CSS_SELECTOR, ".sc-eqUAAy.jqMGgv")
+        name = driver.find_elements(By.CSS_SELECTOR, ".sc-fvwjDU.fbccdO")
+        price = driver.find_elements(By.CSS_SELECTOR, ".sc-kpDqfm.eCPtRw.sc-bOhtcR.dOwMgM")
+
+        # print('\n')
+        # print(name[i+4].text)
+
+        # print(price[i+4].text)
+        # print('\n')
+        # # print(price2[i+4].text)
+        # # print('\n')
+        # # print(rating[i+4].text)
+        # print('--------')
 
 
 
@@ -105,8 +105,32 @@ def store2_scraping():
 
 def store3_scraping():
     driver.get(url_store3)
+    input = driver.find_elements(By.CSS_SELECTOR, ".nav-search-input")
 
-    a = driver.find_elements(By.XPATH, "/html/body/header/div/div[2]/form/button")
+    time.sleep(5)
+    for i in input:
+        i.send_keys("Cube")
 
-    for i in a:
+    search_button = driver.find_elements(By.CSS_SELECTOR, ".nav-search-btn")
+
+    time.sleep(5)
+    for i in search_button:
         i.click()
+        break
+
+    for i in range(3):
+        time.sleep(5)
+        rating = driver.find_elements(By.CSS_SELECTOR, ".ui-search-reviews__rating-number")
+        name = driver.find_elements(By.CSS_SELECTOR, ".ui-search-item__title")
+        price_div = driver.find_elements(By.XPATH, f"/html/body/main/div/div[3]/section/ol/li[2]/div/div/div[2]/div[2]/div[1]/div[1]/div/div/div/span[1]")
+
+        # print('\n')
+        # print(rating[i+4].text)
+
+        # print('\n')
+        # print(name[i+4].text)
+
+        # for i in price_div:
+        #     print(i.text)
+
+        # print('--------')

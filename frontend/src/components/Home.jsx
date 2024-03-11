@@ -16,7 +16,7 @@ function Home() {
           <div className="store-cards">
             <GenericCard name='Store 1' image='images/Store 1.jpg' />
             <GenericCard name='Store 2' image='images/Store 2.jpg'/>
-            <GenericCard name='Store 3' image='images/Store 3.png'/>
+            <GenericCard name='Store 3' image='images/Store 3.jpg'/>
           </div>
 
         </div>
