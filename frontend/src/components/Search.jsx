@@ -22,20 +22,20 @@ export default function SearchField() {
   return (
     <Paper
       component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400}}
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 600, height: 80}}
     >
       <IconButton sx={{ p: '10px' }} aria-label="menu">
-        <LocalGroceryStoreIcon />
+        <LocalGroceryStoreIcon sx={{ fontSize: 40 }} />
       </IconButton>
       <InputBase
-        sx={{ ml: 1, flex: 1 }}
+        sx={{ ml: 1, flex: 1, fontSize: '20px'  }}
         placeholder="Search Product"
         inputProps={{ 'aria-label': 'search product' }}
         onKeyDown={searchName}
       />
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
       <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
-        <SearchIcon />
+        <SearchIcon sx={{ fontSize: 40 }}/>
       </IconButton>
     </Paper>
   );

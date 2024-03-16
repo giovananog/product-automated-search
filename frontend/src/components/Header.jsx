@@ -21,7 +21,7 @@ export default function Header() {
       >
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Product Search
+            Product Automated Search
           </Typography>
         </Toolbar>
       </AppBar>

@@ -7,10 +7,10 @@ export default function Footer() {
     <Typography variant="body2" color="text.secondary" align="center" style={{position: 'absolute', fontWeight: 700, 
                                                                               bottom: '.5%', textAlign: 'center', width: '100%'}}>
       {'Copyright © '}
-        Product Search
+        Product Automated Search
       {' '}
       { new Date().getFullYear()}
-      {'.'}
+      {/* {'.'} */}
     </Typography>
   );
 }

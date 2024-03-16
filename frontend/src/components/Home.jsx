@@ -7,6 +7,7 @@ import SearchField from "./Search";
 
 
 function Home() {
+
   return (
     <div>
     
@@ -14,9 +15,7 @@ function Home() {
         
         <div className="stores">
           <div className="store-cards">
-            <GenericCard name='Store 1' image='images/Store 1.jpg' />
-            <GenericCard name='Store 2' image='images/Store 2.jpg'/>
-            <GenericCard name='Store 3' image='images/Store 3.jpg'/>
+             <>{["Store 1", "Store 2", "Store 3"].map((store, index) => <GenericCard key={index} name={store} image={`images/Store ${index + 1}.avif`} />)}</>
           </div>
 
         </div>
