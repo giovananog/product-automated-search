@@ -14,53 +14,57 @@ url_store2 = os.getenv("STORE2_URL")
 url_store3 = os.getenv("STORE3_URL")
 
 
-products1 = {}
-products2 = {}
-products3 = {}
-
 driver = webdriver.Chrome(options=chrome_options)
 
 
 #  -------------------------------------store1---------------------------------------
 
-def store1_scraping():
+def store1_scraping(info_list):
     driver.get(url_store1)
-    input = driver.find_elements(By.XPATH, "/html/body/div[1]/header/div/div[1]/div[2]/div/form/div[3]/div[1]/input")
 
-    time.sleep(5)
+    time.sleep(3)
+    close_button = driver.find_element(By.CSS_SELECTOR, ".pop-close-btn")
+
+    if close_button:
+        close_button.click()
+
+    input = driver.find_elements(By.CSS_SELECTOR, ".search--keyword--15P08Ji")
+
     for i in input:
-        i.send_keys("Cube")
+        i.send_keys("Fone de Ouvido")
 
-    search_button = driver.find_elements(By.XPATH, "/html/body/div[1]/header/div/div[1]/div[2]/div/form/div[4]/div/span")
+    search_button = driver.find_elements(By.CSS_SELECTOR, ".search--submit--2VTbd-T")
 
-    time.sleep(5)
     for i in search_button:
         i.click()
         break
 
     for i in range(3):
-        time.sleep(5)
-        price1 = driver.find_elements(By.CSS_SELECTOR, ".a-price-whole")
-        price2 = driver.find_elements(By.CSS_SELECTOR, ".a-price-fraction")
-        # rating = driver.find_elements(By.CSS_SELECTOR, ".a-section .a-spacing-none .a-spacing-top-micro")
-        name = driver.find_elements(By.CSS_SELECTOR, ".a-text-normal .a-color-base")
+        name = driver.find_element(By.XPATH, f'/html/body/div[6]/div[1]/div/div[2]/div[2]/div[2]/div[{i+1}]/div/a/div[2]/div[1]/h3')
+        sale = driver.find_element(By.XPATH, f'/html/body/div[6]/div[1]/div/div[2]/div[2]/div[2]/div[{i+1}]/div/a/div[2]/div[2]/span')
+
+        sales = sale.text.split('+')[0]
+
+        price1 = driver.find_element(By.XPATH, f'/html/body/div[6]/div[1]/div/div[2]/div[2]/div[2]/div[{i+1}]/div/a/div[2]/div[3]/div[1]/span[2]')
+        price2 = driver.find_element(By.XPATH, f'/html/body/div[6]/div[1]/div/div[2]/div[2]/div[2]/div[{i+1}]/div/a/div[2]/div[3]/div[1]/span[4]')
         
-        # time.sleep(5)
-        # print(price1[i+4].text)
-        # print('\n')
-        # print(price2[i+4].text)
-        # print('\n')
-        # # print(rating[i+4].text)
-        # # print('\n')
-        # print(name[i+4].text)
-        # print('--------')
+        price = f'{price1},{price2}'
 
+        dict = {
+            'name': name,
+            'price': price,
+            'sales': sales,
+            'store': 1
+        }
 
+        info_list.append(dict)
+    
+    return info_list
 
 
 #  -------------------------------------store2---------------------------------------
 
-def store2_scraping():
+def store2_scraping(info_list):
     driver.get(url_store2)
 
     time.sleep(5)
@@ -68,7 +72,8 @@ def store2_scraping():
 
     time.sleep(5)
     for i in input:
-        i.send_keys("Cube")
+        i.send_keys("fone de ouvido")
+        break
 
     search_button = driver.find_elements(By.CSS_SELECTOR, ".sc-eqUAAy.IubVJ.sc-cVzyXs.cEKPCm")
 
@@ -78,38 +83,31 @@ def store2_scraping():
 
     for i in range(3):
         time.sleep(5)
-        # rating = driver.find_elements(By.CSS_SELECTOR, ".sc-eqUAAy.jqMGgv")
-        name = driver.find_elements(By.CSS_SELECTOR, ".sc-fvwjDU.fbccdO")
-        price = driver.find_elements(By.CSS_SELECTOR, ".sc-kpDqfm.eCPtRw.sc-bOhtcR.dOwMgM")
-
-        # print('\n')
-        # print(name[i+4].text)
-
-        # print(price[i+4].text)
-        # print('\n')
-        # # print(price2[i+4].text)
-        # # print('\n')
-        # # print(rating[i+4].text)
-        # print('--------')
+        names = driver.find_elements(By.CSS_SELECTOR, ".sc-fvwjDU.fbccdO")
+        prices = driver.find_elements(By.CSS_SELECTOR, ".sc-kpDqfm.eCPtRw.sc-bOhtcR.dOwMgM")
+        sales = driver.find_elements(By.CSS_SELECTOR, ".sc-epqpcT.jdMYPv")
 
 
+        dict = {
+        'name': names[i+4],
+        'price': prices[i+4].split(' ')[1],
+        'sales': sales[i+4],
+        'store': 2
+        }
 
+        info_list.append(dict)
 
-
-
-
-
-
+    return info_list
 
 #  -------------------------------------store3---------------------------------------
 
-def store3_scraping():
+def store3_scraping(info_list):
     driver.get(url_store3)
     input = driver.find_elements(By.CSS_SELECTOR, ".nav-search-input")
 
     time.sleep(5)
     for i in input:
-        i.send_keys("Cube")
+        i.send_keys("fone de ouvido")
 
     search_button = driver.find_elements(By.CSS_SELECTOR, ".nav-search-btn")
 
@@ -120,17 +118,20 @@ def store3_scraping():
 
     for i in range(3):
         time.sleep(5)
-        rating = driver.find_elements(By.CSS_SELECTOR, ".ui-search-reviews__rating-number")
+        sales = driver.find_elements(By.CSS_SELECTOR, ".ui-search-reviews__amount")
         name = driver.find_elements(By.CSS_SELECTOR, ".ui-search-item__title")
-        price_div = driver.find_elements(By.XPATH, f"/html/body/main/div/div[3]/section/ol/li[2]/div/div/div[2]/div[2]/div[1]/div[1]/div/div/div/span[1]")
+        price = driver.find_elements(By.CSS_SELECTOR, ".andes-money-amount.ui-search-price__part.ui-search-price__part--medium.andes-money-amount--cents-superscript")
+        print(sales[i+2].text.split('(')[1].split(')')[0])
 
-        # print('\n')
-        # print(rating[i+4].text)
+        price_text = price[i+2].get_attribute('aria-label').split(' ')
+    
+        dict = {
+        'name': name[i+2].text,
+        'price': f'{price_text[0]}.{price_text[3]}',
+        'sales': sales[i+2].text.split('(')[1].split(')')[0],
+        'store': 3
+        }
 
-        # print('\n')
-        # print(name[i+4].text)
+        info_list.append(dict)
 
-        # for i in price_div:
-        #     print(i.text)
-
-        # print('--------')
+    return info_list
