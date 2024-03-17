@@ -3,7 +3,7 @@
 This project is a web application that allows users to search for products across various online stores in an automated manner.
 
 ## User Interface
-![Interface]('frontend/public/images/image.png')
+![Interface](frontend/public/images/image.png)
 
 
 ## Features
