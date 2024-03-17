@@ -6,6 +6,7 @@ import os
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach", True)
+# chrome_options.add_argument("--headless")
 
 load_dotenv() 
 
