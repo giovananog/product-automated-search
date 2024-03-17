@@ -4,8 +4,8 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" style={{position: 'absolute', fontWeight: 700, 
-                                                                              bottom: '.5%', textAlign: 'center', width: '100%'}}>
+    <Typography variant="body2" color="text.secondary" align="center" style={{position: 'relative', fontWeight: 700, 
+                                                                              bottom: '.2%', textAlign: 'center', width: '100%'}}>
       {'Copyright © '}
         Product Automated Search
       {' '}

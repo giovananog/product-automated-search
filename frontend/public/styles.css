@@ -21,3 +21,18 @@
   display: flex;
   justify-content: center;
 }
+
+.allStore-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.title-allProducts {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 5% 0;
+}
