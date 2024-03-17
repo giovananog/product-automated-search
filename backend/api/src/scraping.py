@@ -6,7 +6,7 @@ import os
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach", True)
-# chrome_options.add_argument("--headless")
+chrome_options.add_argument("--headless")
 
 load_dotenv() 
 
@@ -52,10 +52,15 @@ def store1_scraping(info_list, product_name):
         
         price = f'{price1.text},{price2.text}'
 
+        image_div = driver.find_elements(By.CSS_SELECTOR, '.images--imageWindow--1Z-J9gn')
+
+        image = image_div[i+1].find_element(By.CSS_SELECTOR, "img").get_attribute('src')
+
         dict = {
             'name': name.text,
             'price': price,
             'sales': sales,
+            'image': image,
             'store': 1
         }
 
@@ -88,12 +93,15 @@ def store2_scraping(info_list, product_name):
         names = driver.find_elements(By.CSS_SELECTOR, ".sc-fvwjDU.fbccdO")
         prices = driver.find_elements(By.CSS_SELECTOR, ".sc-kpDqfm.eCPtRw.sc-bOhtcR.dOwMgM")
         sales = driver.find_elements(By.CSS_SELECTOR, ".sc-epqpcT.jdMYPv")
+        image_div = driver.find_elements(By.CSS_SELECTOR, ".sc-gZfzYS.kWXvSd img")
+        image = image_div[i+4].get_attribute('src')
 
 
         dict = {
         'name': names[i+4].text,
         'price': prices[i+4].text.split(' ')[1],
         'sales': sales[i+4].text,
+        'image': image,
         'store': 2
         }
 
@@ -128,10 +136,15 @@ def store3_scraping(info_list, product_name):
 
         price = f'{price_text[0]}.{price_text[3]}' if len(price_text) > 2 else price_text[0]
 
+        time.sleep(5)
+        image_div = driver.find_elements(By.CSS_SELECTOR, ".andes-carousel-snapped__slide.andes-carousel-snapped__slide--active img")
+        image = image_div[i+2].get_attribute('src')
+
         dict = {
         'name': name[i+2].text,
         'price': price,
         'sales': sales[i+2].text.split('(')[1].split(')')[0],
+        'image': image,
         'store': 3
         }
 

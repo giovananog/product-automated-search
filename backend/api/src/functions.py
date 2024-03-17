@@ -1,6 +1,5 @@
 from scraping import store1_scraping, store2_scraping, store3_scraping
 
-
 # get list with all products
 def getProductsSearch (productName):
 
