@@ -3,7 +3,10 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
+import ReceiptIcon from '@mui/icons-material/Receipt';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import { Button, CardActionArea, CardActions, IconButton } from '@mui/material';
 
 export default function GenericCard(props) {
   return (
@@ -16,23 +19,31 @@ export default function GenericCard(props) {
           alt={props.name}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h6" component="div">
             {props.name}
           </Typography>
 
-          {props.isProduct && 
-            <Typography variant="body2" color="text.secondary">
-              {props.description}
+          {props.price && 
+            <Typography variant="h6" color="text.secondary">
+              <IconButton>
+                <MonetizationOnIcon sx={{ fontSize: 30, color: 'green' }} />
+              </IconButton>
+              {props.price}
+              <br/>
+              <IconButton>
+                <ReceiptIcon sx={{ fontSize: 30, color: 'yellow' }} />
+              </IconButton>
+              {props.sales}
             </Typography>
           }
 
         </CardContent>
       </CardActionArea>
 
-      {props.isProduct && 
+      {props.sales && 
       <CardActions>
         <Button size="small" color="primary">
-          Link
+          Product
         </Button>
       </CardActions>
       }

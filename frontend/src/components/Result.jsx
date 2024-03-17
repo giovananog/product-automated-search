@@ -38,7 +38,7 @@ function Result(props) {
         
         <div className="allStore-cards">
           {props.products.map(item => 
-            <GenericCard key={item.name} name={item.name} image={`images/Store ${item.store}.avif`} />
+            <GenericCard key={item.name} name={item.name} image={`images/Store ${item.store}.avif`} sales={`${item.sales}`} price={`$${item.price}`}/>
           )}
         </div>
         

@@ -14,6 +14,7 @@
   display: flex;
   justify-content: space-between;
   width: 60%;
+  align-items: center;
 }
 
 .search-field-div {
@@ -28,6 +29,7 @@
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
+  align-items: center;
 }
 
 .title-allProducts {
