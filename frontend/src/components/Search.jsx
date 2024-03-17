@@ -14,7 +14,7 @@ export default function SearchField() {
     var value = event.target.value;
     
     if (event.keyCode === 13) {
-      const searchURL = `/search/${value}`;
+      const searchURL = `/${value}`;
       navigate(searchURL);
     } 
   }

@@ -3,13 +3,16 @@ import Footer from "./Footer";
 import Header from "./Header";
 import { useParams } from "react-router-dom";
 import api from '../api'
+import Button from '@mui/material/Button';
 import GenericCard from "./Card";
 import Typography from '@mui/material/Typography';
+import Result from "./Result";
 
 
 function FinalResult() {
 
 //   const [products, setProducts] = React.useState([]);
+  const [clicked, setClicked] = React.useState(false);
   
   const {product} = useParams()
 
@@ -78,11 +81,20 @@ function FinalResult() {
   //     .catch(error => console.error("Error:", error));
   // }, []);
 
+  function handleClick() {
+    setClicked(true)
+  }
+
   const products = (getBestOptions(data));
 
   return (
     <div>
-    
+
+        {clicked ? (
+          <Result products={data} />
+        ) : (
+
+        <div>
         <Header />
 
         <div className="title-allProducts">
@@ -115,9 +127,12 @@ function FinalResult() {
           )}
         </div>
         
-        
-
+        <div className="button-field">
+          <Button onClick={handleClick} variant="outlined">All Results</Button>
+        </div>
         <Footer />
+        </div>
+        )}
 
     </div>
   );

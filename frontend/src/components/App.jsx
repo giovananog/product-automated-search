@@ -15,7 +15,7 @@ function App() {
     <Router>
       <div>
         <Routes>
-
+        
           <Route path="/" element={<Home/>}></Route>
           <Route path="/:product" element={<FinalResult/>}></Route>
           
