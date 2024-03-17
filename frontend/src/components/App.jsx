@@ -6,6 +6,8 @@ import {
   } from "react-router-dom";
 import Home from "./Home";
 import Result from "./Result";
+import FinalResult from "./FinalResult";
+
 
 
 function App() {
@@ -15,7 +17,7 @@ function App() {
         <Routes>
 
           <Route path="/" element={<Home/>}></Route>
-          <Route path="/:product" element={<Result/>}></Route>
+          <Route path="/:product" element={<FinalResult/>}></Route>
           
         </Routes>
 
